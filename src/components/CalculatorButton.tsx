@@ -2,19 +2,23 @@ import { useContext } from "react";
 import { CalculatorContext } from "../context/calculator/CalculatorContext";
 
 interface CalculatorButtonProps {
-    value: string;
+    value: number | "=" | "ac" | "+" | "-" | "*" | "/";
 }
 
 export const CalculatorButton = ({ value }: CalculatorButtonProps) => {
-    const { concatToQuery, calculateResults } = useContext(CalculatorContext);
+    const { concatToQuery, calculateResults, clear } = useContext(CalculatorContext);
 
     const onClick = () => {
-        if (value === "=") {
-            calculateResults();
-            return;
+        switch (value) {
+            case "=":
+                calculateResults();
+                break;
+            case "ac":
+                clear();
+                break;
+            default:
+                concatToQuery(value.toString());
         }
-
-        concatToQuery(value);
     };
 
     return <button onClick={onClick}>{value.toString()}</button>;

@@ -6,7 +6,8 @@ export interface CalculatorState {
 
 export type CalculatorAction =
     | { type: "CONCAT_TO_QUERY"; value: string }
-    | { type: "CALC_RESULTS" };
+    | { type: "CALC_RESULTS" }
+    | { type: "CLEAR" };
 
 export const calculatorReducer: Reducer<CalculatorState, CalculatorAction> = (
     state,
@@ -23,6 +24,12 @@ export const calculatorReducer: Reducer<CalculatorState, CalculatorAction> = (
             return {
                 ...state,
                 query: `${Function("return " + state.query)()}`,
+            };
+
+        case "CLEAR":
+            return {
+                ...state,
+                query: "",
             }
 
         default:

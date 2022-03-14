@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import {calculateResults} from "./actions/calculateResults";
+import {clear} from "./actions/clear";
 import { concatToQuery } from "./actions/concatToQuery";
 import { CalculatorContext } from "./CalculatorContext";
 import { calculatorReducer } from "./calculatorReducer";
@@ -19,6 +20,7 @@ export const CalculatorProvider = ({ children }: CalculatorProviderProps) => {
                 query: state.query,
                 concatToQuery: concatToQuery(dispatch),
                 calculateResults: calculateResults(dispatch),
+                clear: clear(dispatch),
             }}
         >
             {children}

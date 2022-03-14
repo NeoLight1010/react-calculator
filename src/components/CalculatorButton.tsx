@@ -6,9 +6,14 @@ interface CalculatorButtonProps {
 }
 
 export const CalculatorButton = ({ value }: CalculatorButtonProps) => {
-    const { concatToQuery } = useContext(CalculatorContext);
+    const { concatToQuery, calculateResults } = useContext(CalculatorContext);
 
     const onClick = () => {
+        if (value === "=") {
+            calculateResults();
+            return;
+        }
+
         concatToQuery(value);
     };
 

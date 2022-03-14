@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import {calculateResults} from "./actions/calculateResults";
 import { concatToQuery } from "./actions/concatToQuery";
 import { CalculatorContext } from "./CalculatorContext";
 import { calculatorReducer } from "./calculatorReducer";
@@ -17,6 +18,7 @@ export const CalculatorProvider = ({ children }: CalculatorProviderProps) => {
             value={{
                 query: state.query,
                 concatToQuery: concatToQuery(dispatch),
+                calculateResults: calculateResults(dispatch),
             }}
         >
             {children}

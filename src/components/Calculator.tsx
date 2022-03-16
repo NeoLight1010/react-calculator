@@ -11,6 +11,11 @@ export const Calculator = () => {
                 <CalculatorDisplay />
 
                 <div className="calculator-buttons-container" >
+                    <CalculatorButton value="ac" />
+                    <CalculatorButton value="/" />
+                    <CalculatorButton value="*" />
+                    <CalculatorButton value="-" />
+
                     <CalculatorButton value={1} />
                     <CalculatorButton value={2} />
                     <CalculatorButton value={3} />
@@ -22,13 +27,10 @@ export const Calculator = () => {
                     <CalculatorButton value={9} />
                     <CalculatorButton value={0} />
 
-                    <CalculatorButton value="+" />
-                    <CalculatorButton value="-" />
-                    <CalculatorButton value="*" />
-                    <CalculatorButton value="/" />
+                    <CalculatorButton value="." />
 
+                    <CalculatorButton value="+" />
                     <CalculatorButton value="=" />
-                    <CalculatorButton value="ac" />
                 </div>
             </div>
         </CalculatorProvider>

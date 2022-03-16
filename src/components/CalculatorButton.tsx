@@ -2,11 +2,25 @@ import { useContext } from "react";
 import { CalculatorContext } from "../context/calculator/CalculatorContext";
 
 interface CalculatorButtonProps {
-    value: number | "=" | "ac" | "+" | "-" | "*" | "/";
+    value: number | "=" | "ac" | "+" | "-" | "*" | "/" | ".";
 }
 
 export const CalculatorButton = ({ value }: CalculatorButtonProps) => {
-    const { concatToQuery, calculateResults, clear } = useContext(CalculatorContext);
+    const { concatToQuery, calculateResults, clear } =
+        useContext(CalculatorContext);
+
+    let className: string = "";
+    switch (value) {
+        case "+":
+            className = "calculator-plus";
+            break;
+        case "=":
+            className = "calculator-equals";
+            break;
+        case 0:
+            className = "calculator-zero";
+            break;
+    }
 
     const onClick = () => {
         switch (value) {
@@ -21,5 +35,12 @@ export const CalculatorButton = ({ value }: CalculatorButtonProps) => {
         }
     };
 
-    return <div className="calculator-button" onClick={onClick}>{value.toString()}</div>;
+    return (
+        <div
+            className={["calculator-button", className].join(" ")}
+            onClick={onClick}
+        >
+            {value.toString()}
+        </div>
+    );
 };

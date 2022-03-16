@@ -21,5 +21,5 @@ export const CalculatorButton = ({ value }: CalculatorButtonProps) => {
         }
     };
 
-    return <button onClick={onClick}>{value.toString()}</button>;
+    return <div className="calculator-button" onClick={onClick}>{value.toString()}</div>;
 };

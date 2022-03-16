@@ -4,5 +4,5 @@ import { CalculatorContext } from "../context/calculator/CalculatorContext";
 export const CalculatorDisplay = () => {
     const { query } = useContext(CalculatorContext);
 
-    return <span>{query}</span>;
+    return <span className="calculator-display">{query}</span>;
 };
